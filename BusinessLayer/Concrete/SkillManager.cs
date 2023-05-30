@@ -18,6 +18,16 @@ namespace BusinessLayer.Concrete
             _skillDal = skillDal;
         }
 
+        public List<Skill> GetFirst5()
+        {
+           return _skillDal.GetList().Take(5).ToList();
+        }
+
+        public List<Skill> GetLast5()
+        {
+            return _skillDal.GetList().TakeLast(5).ToList();
+        }
+
         public void TDelete(Skill t)
         {
             _skillDal.Delete(t);

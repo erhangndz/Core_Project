@@ -1,3 +1,7 @@
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Abstract;
+using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +27,33 @@ namespace Core_Project
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IFeatureDal,EfFeatureDal>();
+            services.AddScoped<IFeatureService,FeatureManager>();
+
+            services.AddScoped<IAboutDal, EfAboutDal>();
+            services.AddScoped<IAboutService, AboutManager>();
+
+            services.AddScoped<IServiceDal, EfServiceDal>();
+            services.AddScoped<IServiceService, ServiceManager>();
+
+            services.AddScoped<ISkillDal, EfSkillDal>();
+            services.AddScoped<ISkillService, SkillManager>();
+
+            services.AddScoped<IPortfolioDal, EfPortfolioDal>();
+            services.AddScoped<IPortfolioService, PortfolioManager>();
+
+            services.AddScoped<IExperienceDal, EfExperienceDal>();
+            services.AddScoped<IExperienceService, ExperienceManager>();
+
+            services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+            services.AddScoped<ITestimonialService, TestimonialManager>();
+
+            services.AddScoped<IContactInfoDal, EfContactInfoDal>();
+            services.AddScoped<IContactInfoService, ContactInfoManager>();
+
+            services.AddScoped<IMessageDal, EfMessageDal>();
+            services.AddScoped<IMessageService, MessageManager>();
+
             services.AddControllersWithViews();
         }
 

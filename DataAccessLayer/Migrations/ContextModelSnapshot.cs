@@ -158,7 +158,13 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageURL2")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectURL")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PortfolioID");
