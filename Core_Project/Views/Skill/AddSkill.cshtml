@@ -1,0 +1,20 @@
+﻿@model EntityLayer.Concrete.Skill
+@{
+    ViewData["Title"] = "AddSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3>Yetenek Ekleme Sayfası</h3>
+</div>
+<br /><br />
+<form action="/Skill/AddSkill/" method="post">
+    <label>Başlık</label>
+    @Html.TextBoxFor(x=>x.Title,new{@class="form-control"})
+    <br />
+    <label>Oran</label>
+    @Html.TextBoxFor(x=>x.Value,new{@class="form-control"})
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+
+</form>
