@@ -1,0 +1,56 @@
+﻿@model EntityLayer.Concrete.Portfolio
+@{
+    ViewData["Title"] = "AddPortfolio";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card-header border-0">
+    <h3>Proje Ekleme Sayfası</h3>
+</div>
+<br />
+<br />
+<form action="/Portfolio/AddPortfolio/" method="post">
+    <label>Proje İsmi</label>
+    @Html.TextBoxFor(x=>x.Name,new{@class="form-control"})
+    <p class="text-danger"> @Html.ValidationMessageFor(x=>x.Name)</p>
+    <br />
+    <label>Görsel 1</label>
+    @Html.TextBoxFor(x=>x.ImageURL,new{@class="form-control"})
+    <p class="text-danger">
+        @Html.ValidationMessageFor(x=>x.ImageURL)
+    </p>
+    <br />
+    <label>Görsel 2</label>
+    @Html.TextBoxFor(x=>x.ImageURL2,new{@class="form-control"})
+    <p class="text-danger">
+        @Html.ValidationMessageFor(x=>x.ImageURL2)
+    </p>
+    <br />
+    <label>Proje URL</label>
+    @Html.TextBoxFor(x=>x.ProjectURL,new{@class="form-control"})
+    <p class="text-danger">
+        @Html.ValidationMessageFor(x=>x.ProjectURL)
+    </p>
+    <br />
+    <label>Platform Görseli</label>
+    @Html.TextBoxFor(x=>x.Platform,new{@class="form-control"})
+    <br />
+    <label>Fiyat </label>
+    @Html.TextBoxFor(x=>x.Price,new{@class="form-control"})
+    <p class="text-danger">
+        @Html.ValidationMessageFor(x=>x.Price)
+    </p>
+    <br />
+    <label>Tamamlanma </label>
+    @Html.TextBoxFor(x=>x.Value,new{@class="form-control"})
+    <p class="text-danger">
+        @Html.ValidationMessageFor(x=>x.Value)
+    </p>
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+
+</form>
+
+
+

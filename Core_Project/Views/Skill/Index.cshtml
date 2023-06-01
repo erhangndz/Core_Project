@@ -45,10 +45,11 @@
                         </div>
                     </td>
                     <td>
-                        <a href="/Skill/DeleteSkill/@item.SkillID" class="btn btn-danger">Sil</a>
+                        <a href="/Skill/DeleteSkill/@item.SkillID" class="btn btn-outline-danger" id="DeleteBtn"
+                           onclick="return confirm('Silmek istediğinize emin misiniz?');">Sil</a>
                     </td>
                     <td>
-                        <a href="/Skill/UpdateSkill/@item.SkillID" class="btn btn-info">Düzenle</a>
+                        <a href="/Skill/UpdateSkill/@item.SkillID" class="btn btn-outline-info">Düzenle</a>
                     </td>
                 </tr>
             }

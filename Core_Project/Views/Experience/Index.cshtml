@@ -39,10 +39,11 @@
                     </td>
                    
                     <td>
-                        <a href="/Experience/DeleteExperience/@item.ExperienceID" class="btn btn-danger">Sil</a>
+                        <a href="/Experience/DeleteExperience/@item.ExperienceID" class="btn btn-outline-danger" id="DeleteBtn"
+                           onclick="return confirm('Silmek istediğinize emin misiniz?');">Sil</a>
                     </td>
                     <td>
-                        <a href="/Experience/UpdateExperience/@item.ExperienceID" class="btn btn-info">Düzenle</a>
+                        <a href="/Experience/UpdateExperience/@item.ExperienceID" class="btn btn-outline-info">Düzenle</a>
                     </td>
                 </tr>
             }
