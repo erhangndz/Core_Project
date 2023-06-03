@@ -1,7 +1,7 @@
 ﻿@model EntityLayer.Concrete.Portfolio
 @{
     ViewData["Title"] = "UpdatePortfolio";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 <div class="card-header border-0">
@@ -48,7 +48,7 @@
         @Html.ValidationMessageFor(x=>x.Value)
     </p>
     <br />
-    <button class="btn btn-primary">Kaydet</button>
+    <button class="btn btn-outline-primary">Kaydet</button>
 
 </form>
 

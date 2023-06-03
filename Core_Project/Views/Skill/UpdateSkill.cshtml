@@ -1,14 +1,15 @@
 ﻿@model EntityLayer.Concrete.Skill
 @{
     ViewData["Title"] = "UpateSkill";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 <div class="card-header border-0">
-    <h3>Yetenek Düzenleme Sayfası</h3>
+    <div class="card-header bg-transparent border-0">
+        <h3 class="text-white mb-0">Yetenek Düzenleme Paneli</h3>
+    </div>
 </div>
-<br />
-<br />
+
 <form action="/Skill/UpdateSkill/" method="post">
     @Html.HiddenFor(x=>x.SkillID)
     <label>Başlık</label>

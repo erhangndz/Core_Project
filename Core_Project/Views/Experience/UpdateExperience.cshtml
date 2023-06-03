@@ -1,7 +1,7 @@
 ﻿@model EntityLayer.Concrete.Experience
 @{
     ViewData["Title"] = "AddExperience";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 
@@ -24,7 +24,7 @@
     <label>Açıklama</label>
     @Html.TextAreaFor(x=>x.Description,10,1,new{@class="form-control"})
     <br />
-    <button class="btn btn-primary">Kaydet</button>
+    <button class="btn btn-outline-primary">Kaydet</button>
 
 </form>
 

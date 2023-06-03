@@ -1,7 +1,7 @@
 ﻿@model List<EntityLayer.Concrete.Portfolio>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 <div class="row">
@@ -48,13 +48,8 @@
                                 </td>
                      
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="completion mr-2">@item.Value%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
-                                            </div>
-                                        </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @item.Value%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </td>
                         
@@ -72,7 +67,7 @@
             </div>
            
         </div>
-        <a href="/Portfolio/AddPortfolio" class="btn btn-primary">Yeni Proje Ekle</a>
+        <a href="/Portfolio/AddPortfolio" class="btn btn-outline-primary">Yeni Proje Ekle</a>
     </div>
 </div>
 

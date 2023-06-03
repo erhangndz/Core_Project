@@ -1,7 +1,7 @@
 ﻿@model List<EntityLayer.Concrete.Skill>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 <div class="card-header border-0">
@@ -10,7 +10,7 @@
 <!-- Light table -->
 <div class="table-responsive">
     <table class="table align-items-center table-flush">
-        <thead class="thead-light">
+        <thead class="thead-dark">
             <tr>
                 <th scope="col" class="sort" data-sort="name">#</th>
                 <th scope="col" class="sort" data-sort="budget">Başlık</th>
@@ -35,13 +35,8 @@
                     </td>
 
                     <td>
-                        <div class="d-flex align-items-center">
-                            <span class="completion mr-2">@item.Value%</span>
-                            <div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
-                                </div>
-                            </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: @item.Value%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </td>
                     <td>
@@ -56,5 +51,5 @@
         </tbody>
     </table>
    
-    <a href="/Skill/AddSkill" class="btn btn-primary">Yeni Yetenek Ekle</a>
+    <a href="/Skill/AddSkill" class="btn btn-outline-primary">Yeni Yetenek Ekle</a>
 </div>

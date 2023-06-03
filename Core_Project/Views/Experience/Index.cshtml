@@ -1,7 +1,7 @@
 ﻿@model List<EntityLayer.Concrete.Experience>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 <div class="card-header border-0">
@@ -10,7 +10,7 @@
 <!-- Light table -->
 <div class="table-responsive">
     <table class="table align-items-center table-flush">
-        <thead class="thead-light">
+        <thead class="thead-dark">
             <tr>
                 <th scope="col" class="sort" data-sort="name">#</th>
                 <th scope="col" class="sort" data-sort="budget">Şirket</th>
@@ -50,6 +50,6 @@
         </tbody>
     </table>
 
-    <a href="/Experience/AddExperience" class="btn btn-primary">Yeni Deneyim Ekle</a>
+    <a href="/Experience/AddExperience" class="btn btn-outline-primary">Yeni Deneyim Ekle</a>
 </div>
 
