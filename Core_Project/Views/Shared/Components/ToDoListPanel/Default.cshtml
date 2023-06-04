@@ -1,0 +1,41 @@
+﻿@model List<EntityLayer.Concrete.ToDoList>
+@{
+    var classvalue = "";
+    var typevalue = "";
+}
+<div class="col-md-12 col-xl-4 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yapılacaklar Listesi</h4>
+            <div class="add-items d-flex">
+                <input type="text" class="form-control todo-list-input" placeholder="görevi yazın..">
+                <button class="add btn btn-primary todo-list-add-btn">Ekle</button>
+            </div>
+            <div class="list-wrapper">
+                <ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom">
+                    @foreach(var item in Model){
+                        if(item.Status==false){ typevalue = "checked"; }else if(item.Status==true){ typevalue = ""; }
+                        if(item.Status==false){ classvalue = "completed"; }else if(item.Status==true){ typevalue = ""; }
+                        <li class="@classvalue">
+                        <div class="form-check form-check-primary">
+                            <label class="form-check-label">
+                                <input class="checkbox" type="checkbox" @typevalue> @item.Title
+                            </label>
+                        </div>
+                        <i class="remove mdi mdi-close-box"></i>
+                    </li>
+                    }
+                    @*<li class="completed">
+                        <div class="form-check form-check-primary">
+                            <label class="form-check-label">
+                                <input class="checkbox" type="checkbox" checked> Prepare for presentation
+                            </label>
+                        </div>
+                        <i class="remove mdi mdi-close-box"></i>
+                    </li>*@
+              
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

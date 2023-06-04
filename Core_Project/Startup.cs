@@ -54,6 +54,15 @@ namespace Core_Project
             services.AddScoped<IMessageDal, EfMessageDal>();
             services.AddScoped<IMessageService, MessageManager>();
 
+            services.AddScoped<IUserDal, EfUserDal>();
+            services.AddScoped<IUserService, UserManager>();
+
+            services.AddScoped<IUserMessageDal, EfUserMessageDal>();
+            services.AddScoped<IUserMessageService, UserMessageManager>();
+
+            services.AddScoped<IToDoListDal, EfToDoListDal>();
+            services.AddScoped<IToDoListService, ToDoListManager>();
+
             services.AddControllersWithViews();
         }
 
@@ -82,6 +91,14 @@ namespace Core_Project
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Writer}/{action=Index}/{id?}"
+                );
             });
         }
     }
