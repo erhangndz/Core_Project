@@ -1,4 +1,4 @@
-﻿
+﻿@model Core_Project.Areas.Writer.Models.UserRegisterViewModel
 @{
     Layout = null;
 }
@@ -31,25 +31,37 @@
                             </div>
                             <h4>Hesabınız yok mu?</h4>
                             <h6 class="font-weight-light">Kayıt olmak çok kolay, Sadece bir dakikanızı alacak.</h6>
-                            <form class="pt-3">
+                            <form class="pt-3" method="post">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Kullanıcı Adı">
+                                    <span asp-validation-for="Name" style="color:red"></span>
+                                    <input type="text" asp-for="Name"  class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Adınız" />
+                                    <span asp-validation-for="Name" style="color:red"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" asp-for="Surname" asp-validation-for="Surname" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Soyadınız" />
+                                    <span asp-validation-for="Surname" style="color:red"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                                    <input type="text" asp-for="ImageURL" asp-validation-for="ImageURL" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Görsel URL" />
+                                    <span asp-validation-for="ImageURL" style="color:red"></span>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control form-control-lg" id="exampleFormControlSelect2">
-                                        <option>Ülkeyi Seçin</option>
-                                        <option>United States of America</option>
-                                        <option>United Kingdom</option>
-                                        <option>India</option>
-                                        <option>Germany</option>
-                                        <option>Argentina</option>
-                                    </select>
+                                    <input type="text" asp-for="Username" asp-validation-for="Username" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Kullanıcı Adı" />
+                                    <span asp-validation-for="Username" style="color:red"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Şifre">
+                                    <input type="email" asp-for="Mail" asp-validation-for="Mail" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email" />
+                                    <span asp-validation-for="Mail" style="color:red"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="password" asp-for="Password" asp-validation-for="Password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Şifreniz" />
+                                    <span asp-validation-for="Password" style="color:red"></span>
+                                </div>
+                                 <div class="form-group">
+                                    <input type="password" asp-for="ConfirmPassword" asp-validation-for="ConfirmPassword" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Şifre Tekrar" />
+                                    <span asp-validation-for="ConfirmPassword" style="color:red"></span>
                                 </div>
                                 <div class="mb-4">
                                     <div class="form-check">
@@ -59,8 +71,11 @@
                                         </label>
                                     </div>
                                 </div>
+                                <div style="color:red" asp-validation-summary="ModelOnly">
+
+                                </div>
                                 <div class="mt-3">
-                                    <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">Kayıt Ol</a>
+                                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Kayıt Ol</button>
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
                                     Zaten bir hesabınız var mı? <a href="login.html" class="text-primary">Giriş Yap</a>

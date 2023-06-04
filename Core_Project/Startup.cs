@@ -1,7 +1,9 @@
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -62,6 +64,8 @@ namespace Core_Project
 
             services.AddScoped<IToDoListDal, EfToDoListDal>();
             services.AddScoped<IToDoListService, ToDoListManager>();
+            services.AddIdentity<WriterUser, WriterRole>().AddEntityFrameworkStores<Context>();
+            services.AddDbContext<Context>();
 
             services.AddControllersWithViews();
         }
