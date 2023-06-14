@@ -62,8 +62,14 @@ namespace Core_Project
             services.AddScoped<IUserMessageDal, EfUserMessageDal>();
             services.AddScoped<IUserMessageService, UserMessageManager>();
 
+            services.AddScoped<IWriterMessageDal, EfWriterMessageDal>();
+            services.AddScoped<IWriterMessageService, WriterMessageManager>();
+
             services.AddScoped<IToDoListDal, EfToDoListDal>();
             services.AddScoped<IToDoListService, ToDoListManager>();
+
+            services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
+            services.AddScoped<IAnnouncementService, AnnouncementManager>();
             services.AddIdentity<WriterUser, WriterRole>().AddEntityFrameworkStores<Context>();
             services.AddDbContext<Context>();
 
@@ -85,7 +91,7 @@ namespace Core_Project
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();

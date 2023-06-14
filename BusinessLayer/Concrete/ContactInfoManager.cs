@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +22,11 @@ namespace BusinessLayer.Concrete
         public void TDelete(ContactInfo t)
         {
             _contactInfoDal.Delete(t);
+        }
+
+        public List<ContactInfo> TGetbyFilter(Expression<Func<ContactInfo, bool>> filter)
+        {
+           return _contactInfoDal.GetbyFilter(filter);
         }
 
         public ContactInfo TGetByID(int id)

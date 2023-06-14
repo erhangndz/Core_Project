@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BusinessLayer.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Core_Project.Areas.Writer.Controllers
@@ -7,9 +8,24 @@ namespace Core_Project.Areas.Writer.Controllers
     [Authorize]
     public class DefaultController : Controller
     {
-        public IActionResult Index()
+        private readonly IAnnouncementService _announcementService;
+
+		public DefaultController(IAnnouncementService announcementService)
+		{
+			_announcementService = announcementService;
+		}
+
+		public IActionResult Index()
         {
-            return View();
+            var values = _announcementService.TGetList();
+            return View(values);
+        }
+
+
+        public IActionResult AnnouncementDetails(int id)
+        {
+           var values= _announcementService.TGetByID(id);
+            return View(values);
         }
 
      

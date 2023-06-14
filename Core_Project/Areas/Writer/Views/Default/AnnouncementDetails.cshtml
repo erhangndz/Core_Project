@@ -1,0 +1,13 @@
+﻿@model EntityLayer.Concrete.Announcement
+@{
+    ViewData["Title"] = "AnnouncementDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h4 class="card-title">Duyuru Detayları</h4>
+
+<div>
+    <input type="hidden" asp-for="AnnouncementID" />
+    @Html.TextAreaFor(x=>x.Content,5,1, new {@class="form-control"})
+</div>
+
