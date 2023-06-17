@@ -56,11 +56,7 @@ namespace Core_Project
             services.AddScoped<IMessageDal, EfMessageDal>();
             services.AddScoped<IMessageService, MessageManager>();
 
-            services.AddScoped<IUserDal, EfUserDal>();
-            services.AddScoped<IUserService, UserManager>();
-
-            services.AddScoped<IUserMessageDal, EfUserMessageDal>();
-            services.AddScoped<IUserMessageService, UserMessageManager>();
+           
 
             services.AddScoped<IWriterMessageDal, EfWriterMessageDal>();
             services.AddScoped<IWriterMessageService, WriterMessageManager>();

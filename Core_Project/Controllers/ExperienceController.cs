@@ -15,18 +15,14 @@ namespace Core_Project.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.v1 = "Deneyim Listesi";
-            ViewBag.v2 = "Deneyimler";
-            ViewBag.v3 = "Deneyim Listesi";
+           
             var values= _experienceService.TGetList();
             return View(values);
         }
         [HttpGet]
         public IActionResult AddExperience()
         {
-            ViewBag.v1 = "Deneyim Ekleme";
-            ViewBag.v2 = "Deneyimler";
-            ViewBag.v3 = "Ekleme";
+           
             return View();
         }
         [HttpPost]
@@ -47,9 +43,7 @@ namespace Core_Project.Controllers
         [HttpGet]
         public IActionResult UpdateExperience(int id)
         {
-            ViewBag.v1 = "Deneyim Düzenleme";
-            ViewBag.v2 = "Deneyimler";
-            ViewBag.v3 = "Düzenleme";
+            
             var values = _experienceService.TGetByID(id);
             return View(values);
         }

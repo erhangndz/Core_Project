@@ -14,6 +14,7 @@ using System.Windows.Markup;
 namespace Core_Project.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
     public class DashboardController : Controller
     {
         private readonly UserManager<WriterUser> _userManager;
@@ -31,9 +32,9 @@ namespace Core_Project.Areas.Writer.Controllers
 
             //statistics
             Context c = new Context();
-            ViewBag.v1 = 0;
+            ViewBag.v1 = c.WriterMessages.Where(x=>x.Receiver==values.Email).Count();
             ViewBag.v2 = c.Announcements.Count();
-            ViewBag.v3 = 0;
+            ViewBag.v3 = c.Users.Count();
             ViewBag.v4 = c.Skills.Count();
 
 

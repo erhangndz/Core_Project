@@ -15,18 +15,14 @@ namespace Core_Project.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.v1 = "Yetenek Listesi";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Liste";
+           
             var values= _skillService.TGetList();
             return View(values);
         }
         [HttpGet]
         public IActionResult AddSkill()
         {
-            ViewBag.v1 = "Yetenek Ekleme";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Ekleme";
+           
             return View();
         }
 
@@ -47,9 +43,7 @@ namespace Core_Project.Controllers
         [HttpGet]
         public IActionResult UpdateSkill(int id) 
         {
-            ViewBag.v1 = "Yetenek Düzenleme";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Düzenleme";
+           
             var values = _skillService.TGetByID(id);
             return View(values);
         }

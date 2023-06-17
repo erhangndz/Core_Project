@@ -22,19 +22,21 @@
                
                 <div class="form-group">
                     <label for="exampleInputPassword4">Şifreniz</label>
-                    <input type="password"  class="form-control" id="exampleInputPassword4" placeholder="Şifre">
+                    <input type="password" asp-for="Password" class="form-control" id="exampleInputPassword4" placeholder="Şifre">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword4">Şifre Tekrar</label>
-                    <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Şifre Tekar">
+                    <input type="password" asp-for="ConfirmPassword" class="form-control" id="exampleInputPassword4" placeholder="Şifre Tekar">
                 </div>
                 
                 <div class="form-group">
                     <label>Resim Yükle</label>
-                    <input type="file" asp-for="Image" class="form-control" value="Resim Seç" >
+                    <input type="file" asp-for="Image" class="form-control" placeholder="Resim Seç" >
                     <div class="input-group col-xs-12">
                        
-                        
+                       <label>Profil Resmi:</label> 
+                       <br />
+                       <img src="~/userimage/@Html.DisplayFor(x=>x.ImageURL)" style="width:100px;height:100px" />
                     </div>
                 </div>
                

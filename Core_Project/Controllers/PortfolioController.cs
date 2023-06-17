@@ -17,9 +17,7 @@ namespace Core_Project.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.v1 = "Proje Listesi";
-            ViewBag.v2 = "Projeler";
-            ViewBag.v3 = "Proje Listesi";
+           
             var values= _portfolioService.TGetList();
             return View(values);
         }
@@ -27,17 +25,13 @@ namespace Core_Project.Controllers
         [HttpGet]
         public IActionResult AddPortfolio()
         {
-            ViewBag.v1 = "Proje Ekleme";
-            ViewBag.v2 = "Projeler";
-            ViewBag.v3 = "Ekleme";
+            
             return View();
         }
         [HttpPost]
         public IActionResult AddPortfolio(Portfolio p)
         {
-            ViewBag.v1 = "Proje Ekleme";
-            ViewBag.v2 = "Projeler";
-            ViewBag.v3 = "Ekleme";
+            
             PortfolioValidator validator = new PortfolioValidator();
             ValidationResult result = validator.Validate(p);
             if (result.IsValid)
@@ -71,9 +65,7 @@ namespace Core_Project.Controllers
         [HttpGet]
         public IActionResult UpdatePortfolio(int id)
         {
-            ViewBag.v1 = "Proje Düzenleme";
-            ViewBag.v2 = "Projeler";
-            ViewBag.v3 = "Düzenleme";
+           
             var values = _portfolioService.TGetByID(id);
             return View(values);
         }

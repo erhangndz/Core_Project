@@ -17,8 +17,8 @@
                         <tr>
                             <th>#</th>
                             <th>Konu</th>
-                            <th>Tarih</th>
                             <th>Alıcı</th>
+                            <th>Tarih</th>
                             <th>Detaylar</th>
                         </tr>
                     </thead>
@@ -26,18 +26,13 @@
                         @foreach (var item in Model)
                         {
                             count++;
-                            @* if (item.Status == "Yeni Yazı") { color = "danger"; }
-                        if (item.Status == "Yeni Video") { color = "warning"; }
-                        if (item.Status == "Konferans") { color = "info"; }
-                        if (item.Status == "Workshop") { color = "success"; }
-                        if (item.Status == "Bootcamp") { color = "primary"; }*@
+                           
                             <tr>
                                 <th>@count</th>
                                 <td>@item.Subject</td>
+                                <td>@item.ReceiverName</td>
                                 <td>@(((DateTime)@item.Date).ToString("dd-MMM-yyyy"))</td>
-                                <td>@item.Receiver</td>
-                                @* <td><label class="badge badge-info">@item.Status</label></td>*@
-                                <td><a href="/Writer/Message/MessageDetails/@item.WriterMessageID" class="btn btn-outline-dark">Mesajı Gör</a></td>
+                                <td><a href="/Writer/Message/SentMessageDetails/@item.WriterMessageID" class="btn btn-outline-dark">Mesajı Gör</a></td>
                             </tr>
                         }
                     </tbody>

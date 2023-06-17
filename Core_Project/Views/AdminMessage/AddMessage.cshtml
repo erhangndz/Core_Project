@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.WriterMessage
+@{
+    ViewData["Title"] = "AddMessage";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<h4 class="card-title"> Yeni Mesaj Oluştur </h4>
+
+<div>
+    <form method="post">
+
+        <br />
+        <label>Alıcı Mail</label>
+        @Html.TextBoxFor(x=>x.Receiver, new {@class="form-control"})
+        <br />
+        <label> Konu</label>
+        @Html.TextBoxFor(x=>x.Subject, new {@class="form-control"})
+        <br />
+        <label>Mesaj İçeriği</label>
+        @Html.TextAreaFor(x=>x.Content,8,1, new {@class="form-control"})
+        <br />
+        <button class="btn btn-info">Gönder</button>
+    </form>
+</div>
+
+
+

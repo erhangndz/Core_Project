@@ -1,0 +1,24 @@
+﻿@using EntityLayer.Concrete;
+@model WriterMessage
+@{
+    ViewData["Title"] = "SentMessageDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<h4 class="card-title">Gönderilen Mesaj Detayları</h4>
+
+<div>
+    <input type="hidden" asp-for="WriterMessageID" />
+    <label>Alıcı Adı</label>
+    @Html.TextBoxFor(x=>x.ReceiverName, new {@class="form-control"})
+    <br />
+    <label>Alıcı Mail</label>
+    @Html.TextBoxFor(x=>x.Receiver, new {@class="form-control"})
+    <br />
+    <label>Mesaj İçeriği</label>
+    @Html.TextAreaFor(x=>x.Content,8,1, new {@class="form-control"})
+</div>
+
+
+
+
