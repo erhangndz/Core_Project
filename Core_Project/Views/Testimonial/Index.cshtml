@@ -33,11 +33,12 @@
                                 <td> @item.Company </td>
                               
                                 <td>
-                                    <a class="btn btn-outline-danger" href="/Testimonial/DeleteTestimonial/@item.TestimonialID">Sil</a>
+                                        <a class="btn btn-outline-danger" id="DeleteBtn"
+                                           onclick="return confirm('Silmek istediğinize emin misiniz?');" href="/Testimonial/DeleteTestimonial/@item.TestimonialID">Sil</a>
                                     
                                 </td>
                                 <td>
-                                        <a class="btn btn-outline-info" href="/Testimonial/TestimonialDetails/@item.TestimonialID">Detaylar</a>
+                                        <a class="btn btn-outline-info" href="/Testimonial/UpdateTestimonial/@item.TestimonialID">Detaylar</a>
                                 </td>
                             </tr>}
                      
