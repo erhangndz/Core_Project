@@ -1,17 +1,21 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace Core_Project.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         private readonly IMessageService _messageService;
+        private readonly ISocialMediaService _socialMediaService;
 
-        public DefaultController(IMessageService messageService)
+        public DefaultController(IMessageService messageService, ISocialMediaService socialMediaService)
         {
             _messageService = messageService;
+            _socialMediaService = socialMediaService;
         }
 
         public IActionResult Index()
@@ -46,5 +50,13 @@ namespace Core_Project.Controllers
             _messageService.TInsert(p);
            return RedirectToAction("Index");
         }
+
+        
+        public PartialViewResult SocialMediaPartial()
+        {
+            var values = _socialMediaService.TGetList();
+            return PartialView(values);
+        }
+       
     }
 }

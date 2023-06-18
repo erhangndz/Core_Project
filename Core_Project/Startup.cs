@@ -4,12 +4,17 @@ using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,10 +61,14 @@ namespace Core_Project
             services.AddScoped<IMessageDal, EfMessageDal>();
             services.AddScoped<IMessageService, MessageManager>();
 
-           
+            services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
+            services.AddScoped<ISocialMediaService, SocialMediaManager>();
 
             services.AddScoped<IWriterMessageDal, EfWriterMessageDal>();
             services.AddScoped<IWriterMessageService, WriterMessageManager>();
+
+            services.AddScoped<IWriterDal, EfWriterDal>();
+            services.AddScoped<IWriterService, WriterManager>();
 
             services.AddScoped<IToDoListDal, EfToDoListDal>();
             services.AddScoped<IToDoListService, ToDoListManager>();
@@ -70,6 +79,25 @@ namespace Core_Project
             services.AddDbContext<Context>();
 
             services.AddControllersWithViews();
+            services.AddMvc(config =>
+            {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+            });
+
+           
+            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+            //{
+            //    x.LoginPath = "/AdminLogin/Index/";
+            //});
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(100);
+                options.LoginPath = "/Writer/Login/Index/";
+                options.AccessDeniedPath = "/ErrorPage/AccessDenied/";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,6 +113,8 @@ namespace Core_Project
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404/");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();

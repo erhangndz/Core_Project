@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Core_Project.Areas.Writer.Controllers
 {
     [Area("Writer")]
-    [Authorize]
+   
+    [Authorize(Roles = "Writer")]
     public class DefaultController : Controller
     {
         private readonly IAnnouncementService _announcementService;

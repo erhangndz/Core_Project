@@ -1,0 +1,72 @@
+﻿@model List<EntityLayer.Concrete.SocialMedia>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+    var status = "";
+}
+
+
+<div class="row">
+    <div class="col">
+        <div class="card bg-default shadow">
+            <div class="card-header bg-transparent border-0">
+                <h3 class="text-white mb-0">Sosyal Medya</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-dark table-flush">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" class="sort" data-sort="name">Sosyal Medya</th>
+                            <th scope="col" class="sort" data-sort="budget">Profil Linki</th>
+                            <th scope="col" class="sort" data-sort="status">İkon</th>
+
+                            <th scope="col" class="sort" data-sort="completion">Durum</th>
+                            <th scope="col" class="sort">Sil</th>
+                            <th scope="col" class="sort">Düzenle</th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        @foreach (var item in Model)
+                        {
+                            if(item.Status==true){ status = "Aktif"; }
+                            if(item.Status==false){ status = "Pasif"; }
+                            <tr>
+                                <th >
+                                   @item.Name
+                                </th>
+                                <td class="budget">
+                                    <a href="@item.URL" target="_blank">Siteye Git</a>
+                                </td>
+                                <td class="budget">
+                                    @item.Icon
+                                </td>
+                                <td>
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-success"></i>
+                                        <span class="status">@status</span>
+                                    </span>
+                                </td>
+
+                               
+
+                                <td>
+                                    <a href="/SocialMedia/DeleteSocialMedia/@item.SocialMediaID" class="btn btn-outline-danger" id="DeleteBtn"
+                                       onclick="return confirm('Silmek istediğinize emin misiniz?');">Sil</a>
+                                </td>
+                                <td><a href="/SocialMedia/UpdateSocialMedia/@item.SocialMediaID" class="btn btn-outline-info">Düzenle</a></td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+        <a href="/SocialMedia/AddSocialMedia" class="btn btn-outline-primary">Yeni Sosyal Medya Ekle</a>
+    </div>
+</div>
+
+
+

@@ -1,8 +1,11 @@
 ﻿using BusinessLayer.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Core_Project.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ContactController : Controller
     {
         private readonly IMessageService _messageService;

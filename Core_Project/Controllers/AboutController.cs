@@ -1,9 +1,12 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Core_Project.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AboutController : Controller
     {
         private readonly IAboutService _aboutService;

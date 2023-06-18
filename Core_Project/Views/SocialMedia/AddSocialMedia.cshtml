@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.SocialMedia
+@{
+    ViewData["Title"] = "AddSocialMedia";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<div class="card-header border-0">
+    <h3>Sosyal Medya Ekleme Sayfası</h3>
+</div>
+<br />
+<br />
+<form action="/SocialMedia/AddSocialMedia/" method="post">
+    
+    <label>Sosyal Medya</label>
+    @Html.TextBoxFor(x=>x.Name,new{@class="form-control"})
+    <br />
+    <label>Profil Linki</label>
+    @Html.TextBoxFor(x=>x.URL,new{@class="form-control"})
+    <br />
+    <label>İkon</label>
+    @Html.TextBoxFor(x=>x.Icon,new{@class="form-control"})
+   
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+
+</form>

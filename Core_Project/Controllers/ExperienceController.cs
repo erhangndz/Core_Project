@@ -1,9 +1,11 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Core_Project.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class ExperienceController : Controller
     {
         IExperienceService _experienceService;

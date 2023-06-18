@@ -1,9 +1,12 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Core_Project.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TestimonialController : Controller
     {
         private readonly ITestimonialService _testimonialService;
@@ -37,6 +40,20 @@ namespace Core_Project.Controllers
         public IActionResult UpdateTestimonial(Testimonial p)
         {
             _testimonialService.TUpdate(p);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult AddTestimonial()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddTestimonial(Testimonial p)
+        {
+            _testimonialService.TInsert(p);
             return RedirectToAction("Index");
         }
     }

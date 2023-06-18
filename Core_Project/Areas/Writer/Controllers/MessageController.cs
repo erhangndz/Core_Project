@@ -2,9 +2,11 @@
 using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,6 +14,7 @@ namespace Core_Project.Areas.Writer.Controllers
 {
     [Area("Writer")]
     [Route("Writer/Message")]
+    [Authorize(Roles = "Writer")]
     public class MessageController : Controller
     {
         private readonly IWriterMessageService _messageService;

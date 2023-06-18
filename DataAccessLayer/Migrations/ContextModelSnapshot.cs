@@ -266,8 +266,8 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("Icon")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Name")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");

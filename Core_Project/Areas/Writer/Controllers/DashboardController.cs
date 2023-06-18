@@ -1,11 +1,13 @@
 ﻿using Core_Project.Areas.Writer.Models;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -15,6 +17,7 @@ namespace Core_Project.Areas.Writer.Controllers
 {
     [Area("Writer")]
     [Route("Writer/[controller]/[action]")]
+    [Authorize(Roles = "Writer")]
     public class DashboardController : Controller
     {
         private readonly UserManager<WriterUser> _userManager;

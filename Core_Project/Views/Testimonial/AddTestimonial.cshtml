@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Testimonial
+@{
+    ViewData["Title"] = "AddTestimonial";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<div class="card-header border-0">
+    <h3>Referans Ekleme Sayfası</h3>
+</div>
+<br />
+<br />
+<form action="/Testimonial/AddTestimonial/" method="post">
+
+    <label>Ad Soyad</label>
+    @Html.TextBoxFor(x=>x.Name,new{@class="form-control"})
+    <br />
+    <label>Şirket</label>
+    @Html.TextBoxFor(x=>x.Company,new{@class="form-control"})
+    <br />
+    <label>Görsel URL</label>
+    @Html.TextBoxFor(x=>x.ImageURL,new{@class="form-control"})
+    <br />
+    <label>Yorum</label>
+    @Html.TextAreaFor(x=>x.Comment,8,1,new{@class="form-control"})
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+
+</form>
+
+
